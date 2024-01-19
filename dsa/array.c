@@ -59,6 +59,23 @@ void delete_from_beg(int a[],int *size){
 	return;
 }
 
+void delete_from_pos(int a[],int *size,int index){
+	int i;
+	if(*size==0){
+		printf("Array is empty");
+		return;
+	}
+	if(index<0 || index>=(*size)){
+		printf("Invalid index");
+		return;
+	}
+	for(i=index;i<*size;i++){
+		a[i]=a[i+1];
+	}
+	(*size)--;
+	return;
+}
+
 void delete_from_end(int a[],int *size){
 	int i;
 	if(*size==0){
@@ -104,7 +121,8 @@ int main(void){
 	printf("3.)Insert at any index\n");
 	printf("4.)Delete from beginning\n");
 	printf("5.)Delete from end\n");
-	printf("6.)Display array\n");
+	printf("6.)Delete from any index\n");
+	printf("7.)Display array\n");
 	printf("0.)Exit\n");
 	do{
 		printf("\nEnter your choice:");
@@ -134,6 +152,11 @@ int main(void){
 				delete_from_end(a,&size);
 				break;
 			case 6:
+				printf("Enter index:");
+				scanf("%d",&index);
+				delete_from_pos(a,&size,index);
+				break;
+			case 7:
 				print_array(a,size);
 				break;
 			case 0:
