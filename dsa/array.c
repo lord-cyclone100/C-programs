@@ -86,6 +86,32 @@ void delete_from_end(int a[],int *size){
 	return;
 }
 
+void update_array(int a[],int *size,int value, int index){
+	int i;
+	if(*size==0){
+		printf("Array is empty");
+		return;
+	}
+	if(index<0 || index>=(*size)){
+		printf("Invalid index");
+		return;
+	}
+	a[index]=value;	
+}
+
+int search_element(int a[],int *size,int value){
+	int i;
+	if(*size==0){
+		return -1;
+	}
+	for(i=0;i<(*size);i++){
+		if(a[i]==value){
+			return i;
+		}
+	}
+	return -2;
+}
+
 void print_array(int a[],int size){
 	int i;
 	if(size == 0){
@@ -122,7 +148,9 @@ int main(void){
 	printf("4.)Delete from beginning\n");
 	printf("5.)Delete from end\n");
 	printf("6.)Delete from any index\n");
-	printf("7.)Display array\n");
+	printf("7.)Update element in array\n");
+	printf("8.)Search element\n");
+	printf("9.)Display array\n");
 	printf("0.)Exit\n");
 	do{
 		printf("\nEnter your choice:");
@@ -157,6 +185,27 @@ int main(void){
 				delete_from_pos(a,&size,index);
 				break;
 			case 7:
+				printf("Enter value to update:");
+				scanf("%d",&value);
+				printf("Enter index:");
+				scanf("%d",&index);
+				update_array(a,&size,value,index);
+				break;
+			case 8:
+				printf("Enter value to search:");
+				scanf("%d",&value);
+				int s = search_element(a,&size,value);
+				if(s==-2){
+					printf("%d not found",value);
+				}
+				else if(s==-1){
+					printf("Array is empty");
+				}
+				else{
+					printf("%d found at index %d",value,s);
+				}
+				break;
+			case 9:
 				print_array(a,size);
 				break;
 			case 0:
@@ -164,20 +213,5 @@ int main(void){
 		}
 	}
 	while(choice !=0);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	return 0;
 }
