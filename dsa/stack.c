@@ -79,9 +79,8 @@ int main(void){
 	printf("4.)Peek\n");
 	printf("5.)Is full\n");
 	printf("6.)Is empty\n");
-
-	
 	printf("0.)Exit\n");
+	
 	do{
 		printf("\nEnter your choice:");
 		scanf("%d",&choice);
@@ -114,4 +113,5 @@ int main(void){
 		}
 	}
 	while(choice!=0);
+	return 0;
 }
