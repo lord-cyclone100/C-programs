@@ -81,7 +81,6 @@ int main(void){
 	printf("6.)Is empty\n");
 	printf("0.)Exit\n");
 	
-	printf("0.)Exit\n");
 	do{
 		printf("\nEnter your choice:");
 		scanf("%d",&choice);
